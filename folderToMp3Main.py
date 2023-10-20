@@ -22,5 +22,5 @@ while True:
         print("folder_path", folder_path)
 
         # Передача пути к папке в качестве аргумента команды
-        command = ['python', 'folderToMp3.py', folder_path]
+        command = ['python', 'folderToMp3.py', folder_path.strip('"')]
         subprocess.call(command, shell=True)

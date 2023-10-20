@@ -29,6 +29,10 @@
 
 - Python в систему
 
+>python-3.8.7-amd64 Win7
+
+>python-3.12.0-amd64 Win10
+
 `python -m venv venv`
 
 `pip install -r requirements.txt`

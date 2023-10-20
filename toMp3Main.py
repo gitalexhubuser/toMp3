@@ -12,5 +12,6 @@ while True:
     
     if user_input:
         # Передача данных из input в качестве аргумента команды
-        command = ['python', 'toMp3.py', '--input', user_input]
+        command = ['python', 'toMp3.py', '--input', user_input.strip('"')]
+        print("command", command)
         subprocess.call(command, shell=True)
