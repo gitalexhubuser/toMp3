@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import os
+import time
 
 if __name__ == "__main__":
 
@@ -12,8 +13,7 @@ if __name__ == "__main__":
     # Проверка, что были перетащены файлы
     if len(dropped_files) == 0:
         print("Файлы не были перетащены на скрипт.")
-        # sys.exit(1)
-
+        sys.exit(1)
 
     # Путь к исполняемому файлу командной строки (cmd.exe)
     cmd_path = r'C:\WINDOWS\system32\cmd.exe'  # Укажите правильный путь к cmd.exe на вашей системе
@@ -22,18 +22,11 @@ if __name__ == "__main__":
     activate_script = r'E:\PythonProjects\toMP3\venv\Scripts\activate'  # Укажите правильный путь к активационному скрипту
 
     # Открытие консоли и активация виртуального окружения
-    subprocess.call([cmd_path, '/K', activate_script])
+    subprocess.Popen([cmd_path, '/K', activate_script], shell=True)
 
+    # Задержка в 5 секунд
+    time.sleep(5)
 
-
-    # Команда для выполнения в консоли
-    # command = f'python toMp3.py {" ".join(dropped_files)}'
-
-    # Запуск команды в открытой консоли
-    # os.system(command)
-
-    # Команда для выполнения в консоли
+    # Выполнение команды в активированной консоли
     command = ['python', 'toMp3.py'] + dropped_files
-
-    # Запуск команды в активированном виртуальном окружении
     subprocess.call(command)
