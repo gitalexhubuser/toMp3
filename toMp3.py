@@ -1,18 +1,31 @@
-import sys
-import shutil
+import sys, os
 from moviepy.editor import VideoFileClip
 
-def extract_audio(video_file):
-    try:
+class VideoToMP3Converter:
+    def __init__(self, video_files):
+        self.video_files = video_files
+
+    def convert_files(self):
+        for video_file in self.video_files:
+            self.extract_audio(video_file)
+
+    def extract_audio(self, video_file):
         clip = VideoFileClip(video_file)
-        audio_filename = video_file.replace(video_file.split('.')[-1], 'mp3')
+        audio_filename = os.path.splitext(video_file)[0] + '.mp3'
         clip.audio.write_audiofile(audio_filename)
         clip.close()
-        print(f"Audio extracted from {video_file} to {audio_filename}")
-    except:
-        print(f"Failed to extract audio from {video_file}")
+        print(f"Аудио извлечено из {video_file} и сохранено в {audio_filename}")
 
-if __name__ == '__main__':
-    
-    for file in sys.argv[1:]:
-        extract_audio(file)
+if __name__ == "__main__":
+    # Проверяем, были ли указаны файлы в аргументах командной строки
+    if len(sys.argv) < 2:
+        print("Вы не указали файлы для конвертации.")
+        sys.exit()
+
+    # Создаем экземпляр класса VideoToMP3Converter и передаем список файлов
+    converter = VideoToMP3Converter(sys.argv[1:])
+
+    # Выполняем конвертацию файлов
+    converter.convert_files()
+
+    input("2 Нажмите Enter для выхода...")    
