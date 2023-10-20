@@ -25,7 +25,7 @@ class VideoConverter:
     def extract_audio(self, video_file):
         clip = VideoFileClip(video_file)
         video_filename = os.path.splitext(video_file)[0] + '_' + '.mp4'
-        clip.write_videofile(video_filename, codec='mpeg4')
+        clip.write_videofile(video_filename, codec='mpeg4') # Анти av0 Pr
         clip.close()
         print(f"Видео сконвертировано из {video_file} и сохранено в {video_filename}")
 
