@@ -10,7 +10,7 @@
 
 > Это нужно, чтоб можно было импортировать видео в Adobe Premiere Pro без **ошибки кодека av01**
 
-![](https://i.imgur.com/mHfIHCk.png)
+![](Images/av01.png)
 
 ---
 
