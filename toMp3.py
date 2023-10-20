@@ -1,8 +1,17 @@
-import sys, os
-import subprocess
-import time
+import argparse, os
 from moviepy.editor import VideoFileClip
 
+# Создание парсера аргументов командной строки
+parser = argparse.ArgumentParser()
+parser.add_argument('--input', help='Путь к файлу или список файлов')
+
+# Парсинг аргументов командной строки
+args = parser.parse_args()
+
+# Получение значения аргумента --input
+user_input = args.input
+
+# Продолжение кода класса VideoToMP3Converter
 class VideoToMP3Converter:
     def __init__(self, video_files):
         self.video_files = video_files
@@ -18,17 +27,10 @@ class VideoToMP3Converter:
         clip.close()
         print(f"Аудио извлечено из {video_file} и сохранено в {audio_filename}")
 
-if __name__ == "__main__":
+# Создание экземпляра класса VideoToMP3Converter и передача списка файлов
+converter = VideoToMP3Converter(user_input.split())
 
-    # Проверяем, были ли указаны файлы в аргументах командной строки
-    if len(sys.argv) < 2:
-        print("Вы не указали файлы для конвертации.")
-        sys.exit()
+# Выполнение конвертации файлов
+converter.convert_files()
 
-    # Создаем экземпляр класса VideoToMP3Converter и передаем список файлов
-    converter = VideoToMP3Converter(sys.argv[1:])
-
-    # Выполняем конвертацию файлов
-    converter.convert_files()
-
-    # input("2 Нажмите Enter для выхода...")    
+# input("2 Нажмите Enter для выхода...") 

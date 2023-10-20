@@ -1,4 +1,5 @@
 moviepy==1.0.3 # pip install moviepy
+argparse
 
 # Установить зависимости:
 # pip install -r requirements.txt
