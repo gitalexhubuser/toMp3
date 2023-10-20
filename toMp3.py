@@ -1,4 +1,6 @@
 import sys, os
+import subprocess
+import time
 from moviepy.editor import VideoFileClip
 
 class VideoToMP3Converter:
@@ -17,6 +19,7 @@ class VideoToMP3Converter:
         print(f"Аудио извлечено из {video_file} и сохранено в {audio_filename}")
 
 if __name__ == "__main__":
+
     # Проверяем, были ли указаны файлы в аргументах командной строки
     if len(sys.argv) < 2:
         print("Вы не указали файлы для конвертации.")
@@ -28,4 +31,4 @@ if __name__ == "__main__":
     # Выполняем конвертацию файлов
     converter.convert_files()
 
-    input("2 Нажмите Enter для выхода...")    
+    # input("2 Нажмите Enter для выхода...")    

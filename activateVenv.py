@@ -1,32 +1,32 @@
 import subprocess
-import sys
-import os
-import time
 
-if __name__ == "__main__":
+# Путь к скрипту активации виртуального окружения
+activate_script = r'E:\PythonProjects\toMP3\venv\Scripts\activate'  # Укажите правильный путь к активационному скрипту
 
-    # Запоминание файлов, перетащенных на скрипт
-    # Получение списка перетащенных файлов
-    dropped_files = sys.argv[1:]
-    print(dropped_files)
+command = ['cmd.exe', '/K', activate_script, '&&', 'python', 'toMp3.py']
 
-    # Проверка, что были перетащены файлы
-    if len(dropped_files) == 0:
-        print("Файлы не были перетащены на скрипт.")
-        sys.exit(1)
+# Открытие консоли, активация виртуального окружения и выполнение команды
+subprocess.Popen(command, shell=True)
 
-    # Путь к исполняемому файлу командной строки (cmd.exe)
-    cmd_path = r'C:\WINDOWS\system32\cmd.exe'  # Укажите правильный путь к cmd.exe на вашей системе
+while True:
 
-    # Путь к скрипту активации виртуального окружения
-    activate_script = r'E:\PythonProjects\toMP3\venv\Scripts\activate'  # Укажите правильный путь к активационному скрипту
+    # Запрашиваем ввод от пользователя
+    user_input = input("Введите путь к файлу (или 'выход' для выхода): ")
 
-    # Открытие консоли и активация виртуального окружения
-    subprocess.Popen([cmd_path, '/K', activate_script], shell=True)
+    # Проверка на выход
+    if user_input.lower() == 'выход':
+        break
 
-    # Задержка в 5 секунд
-    time.sleep(5)
+    # Проверка, что пользователь ввел путь к файлу
+    if not user_input:
+        print("Путь к файлу не был введен.")
+        continue
+    
+    if user_input:
+        # print(user_input)
+        # command = ['python', 'toMp3.py', user_input]
 
-    # Выполнение команды в активированной консоли
-    command = ['python', 'toMp3.py'] + dropped_files
-    subprocess.call(command)
+        # Команда для запуска нового окна командной строки с выполнением команды python script.py
+        command = ['start', 'cmd', '/c', 'python', 'toMp3.py', user_input]
+
+        subprocess.call(command) # Выполнение команды
