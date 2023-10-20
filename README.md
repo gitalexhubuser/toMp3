@@ -27,10 +27,18 @@
 
 ## Установка
 
+- Python в систему
+
 `python -m venv venv`
 
 `pip install -r requirements.txt`
 
-...
+## Старый скрипт
+
+```bash
+# старый скрипт (если стоит ffmpeg в PATH)
+del *.mp3
+for %%a in ("*.mp4") do ffmpeg -i "%%a" "%%~na.mp3"
+```
 
 ---
