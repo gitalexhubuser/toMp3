@@ -36,7 +36,8 @@
 ## Старый скрипт
 
 ```bash
-# старый скрипт (если стоит ffmpeg в PATH)
+# Старый скрипт (если стоит ffmpeg в PATH)
+# any mp4 to mp3 (no pause)
 del *.mp3
 for %%a in ("*.mp4") do ffmpeg -i "%%a" "%%~na.mp3"
 ```
