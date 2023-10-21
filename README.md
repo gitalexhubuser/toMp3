@@ -57,13 +57,35 @@
 
 ---
 
-## Старый скрипт
+## Старые скрипты
+
+> Должен стоять **ffmpeg** в PATH
+
+### Audio
 
 ```bash
-# Старый скрипт (если стоит ffmpeg в PATH)
-# any mp4 to mp3 (no pause)
+# Any mp4 to mp3
 del *.mp3
 for %%a in ("*.mp4") do ffmpeg -i "%%a" "%%~na.mp3"
+
+# 1.mp4 to audio.mp3
+del *.mp3
+ffmpeg -i 1.mp4 audio.mp3
+REM pause
+```
+
+### Video
+
+```bash
+# Any mov\mkv to mp4
+del *.mp4
+for %%a in ("*.mov") do ffmpeg -i "%%a" "%%~na.mp4"
+for %%a in ("*.mkv") do ffmpeg -i "%%a" "%%~na.mp4"
+
+# 1.mov to 1.mp4
+del *.mp4
+ffmpeg -i 1.mov 1.mp4
+REM pause
 ```
 
 ---
