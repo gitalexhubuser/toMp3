@@ -53,6 +53,8 @@
 
 - `pip install -r requirements.txt`
 
+[Видео с установкой](https://youtu.be/UgHJQg2RJAI)
+
 ---
 
 ## Старый скрипт
