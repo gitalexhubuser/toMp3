@@ -27,7 +27,7 @@
 - Для работы скриптов `Python` должен быть в системе!
 
 > [python-3.8.7-amd64 Win7](https://www.python.org/ftp/python/3.8.7/python-3.8.7-amd64.exe)
-> или
+или
 > [python-3.12.0-amd64 Win10](https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe)
 
 - Создаём и настраиваем `venv`
@@ -39,13 +39,19 @@
 - Изменяем пути в bat-никах на ваши
 
 > **Батники:**
+
 > folderToMp3.bat
+
 > toMp3.bat
+
 > toMp4.bat
 
 > **Пути в них:**
+
 > cmd /k "cd /d E:\PythonProjects\toMP3\venv\Scripts & activate & cd /d E:\PythonProjects\toMP3 & python folderToMp3Main.py"
+
 > cmd /k "cd /d E:\PythonProjects\toMP3\venv\Scripts & activate & cd /d E:\PythonProjects\toMP3 & python toMp3Main.py"
+
 > cmd /k "cd /d E:\PythonProjects\toMP3\venv\Scripts & activate & cd /d E:\PythonProjects\toMP3 & python toMp4Main.py"
 
 [Видео с установкой](https://youtu.be/UgHJQg2RJAI)
@@ -54,16 +60,33 @@
 
 ## Использование
 
-### MP4 to
+### toMp3
+
 - Запускаем `toMp3.bat`
 - Перетаскиваем файл в открытую `cmd` (технология Drag'n'Drop)
 - Жмём `Enter`
 
-
+**Результат:** Из видео файла был создан звук.
 
 [Конвертер файлов по одному](https://youtu.be/b8Apnfi1H8U)
 
+### folderToMp3
+
+- Запускаем `folderToMp3.bat`
+- Перетаскиваем файл в открытую `cmd` (технология Drag'n'Drop)
+- Жмём `Enter`
+
+**Результат:** Все видео из папки - были переконвертированы в звук. Путь к папке берётся из перетаскиваемого файла автоматически.
+
 [Конвертер файлов целой папкой](https://youtu.be/mIWgtYCkux0)
+
+### toMp4
+
+- Запускаем `toMp4.bat`
+- Перетаскиваем файл в открытую `cmd` (технология Drag'n'Drop)
+- Жмём `Enter`
+
+**Результат:** Видео которое перенесли в консоль - будет переконвертировано в mp4 с иным кодеком. А так же к имени файла прибавится символ _.
 
 [Решение проблемы с кодировкой av01](https://youtu.be/h28vVPzJsBQ)
 
